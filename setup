@@ -22,12 +22,18 @@ else
   exit 1
 fi
 
+# Back up original files
+cp --no-clobber $DIR/whitelist  $DIR/whitelist.bak
+cp --no-clobber $DIR/squid.conf $DIR/squid.conf.bak
+
+# Download new config.
 curl --show-error --silent --fail \
      https://raw.githubusercontent.com/onnozweers/raspberry-pi-parental-filter/master/etc/squid/whitelist \
      -o $DIR/whitelist
 curl --show-error --silent --fail \
      https://raw.githubusercontent.com/onnozweers/raspberry-pi-parental-filter/master/etc/squid/squid.conf \
      -o $DIR/squid.conf
+systemctl restart squid3
 
 PROXY_IP=$(ifconfig eth0 | egrep -o 'inet addr:[0-9\.]+' | egrep -o '[0-9\.]+')
 if [ -z "$PROXY_IP" ] ; then
