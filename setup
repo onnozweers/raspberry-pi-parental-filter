@@ -5,15 +5,36 @@ if [ $UID != 0 ] ; then
   exit 1
 fi
 
+if ! grep --silent 'Raspbian GNU/Linux 8 (jessie)' /etc/os-release ; then
+  echo "I was tested on Raspbian GNU/Linux 8 (jessie), but this seems to be a different system."
+  echo "Type Enter to try anyway. Ctrl+C to quit."
+  read line
+fi
+
 apt-get install squid3
 
+if [ -d "/etc/squid3" ]; then
+  DIR=/etc/squid3
+elif [ -d "/etc/squid" ]; then
+  DIR=/etc/squid
+else
+  echo "Can't find Squid config dir."
+  exit 1
+fi
+
 curl --show-error --silent --fail \
-     https://raw.githubusercontent.com/onnozweers/raspberry-pi-parental-filter/master/etc/squid3/whitelist \
-     -o /etc/squid3/whitelist
-# download or modify squid.conf
+     https://raw.githubusercontent.com/onnozweers/raspberry-pi-parental-filter/master/etc/squid/whitelist \
+     -o $DIR/whitelist
+curl --show-error --silent --fail \
+     https://raw.githubusercontent.com/onnozweers/raspberry-pi-parental-filter/master/etc/squid/squid.conf \
+     -o $DIR/squid.conf
 
 PROXY_IP=$(ifconfig eth0 | egrep -o 'inet addr:[0-9\.]+' | egrep -o '[0-9\.]+')
+if [ -z "$PROXY_IP" ] ; then
+  PROXY_IP=$(ip a | egrep -o 'inet [0-9\.]+' | grep -v 127.0.0.1 | egrep -o '[0-9\.]+')
+fi
 
+# Test proxy
 if curl --proxy "http://localhost:3128/" http://www.msftncsi.com/ncsi.txt --fail --silent --show-error \
    | grep --silent 'Microsoft NCSI'
 then
