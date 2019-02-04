@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if [ $UID != 0 ] ; then
+  echo "Must be root."
+  exit 1
+fi
+
+apt-get install squid3
+
+curl --show-error --silent --fail \
+     https://raw.githubusercontent.com/onnozweers/raspberry-pi-parental-filter/master/etc/squid3/whitelist \
+     -o /etc/squid3/whitelist
+# download or modify squid.conf
+
+PROXY_IP=$(ifconfig eth0 | egrep -o 'inet addr:[0-9\.]+' | egrep -o '[0-9\.]+')
+
+if curl --proxy "http://localhost:3128/" http://www.msftncsi.com/ncsi.txt --fail --silent --show-error \
+   | grep --silent 'Microsoft NCSI'
+then
+  if curl --proxy "http://${PROXY_IP}:3128/" http://www.msftncsi.com/ncsi.txt --fail --silent --show-error \
+     | grep --silent 'Microsoft NCSI'
+  then
+    echo "The proxy appears to work."
+  else
+    echo "The proxy listens on 'localhost', but not on IP address ${PROXY_IP}."
+    echo "Your network may have a specific configuration we didn't expect."
+    exit 1
+  fi
+else
+  echo "It appears the proxy does not work. You'll have to check this yourself."
+  exit 1
+fi
+
+
+echo "
+Next steps:
+- Configure your ADSL modem to block your kid's computer (cable & wlan).
+- Configure the browser of your kid to use this proxy server (http://${PROXY_IP}:3128).
+"
