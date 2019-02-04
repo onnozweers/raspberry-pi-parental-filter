@@ -1,0 +1,168 @@
+# Whitelist for Squid3 proxy parental filter.
+# This list permits access to sites needed for school homework.
+
+#
+# International items first; national items below.
+#
+
+# Squid proxy server cosmetics
+.squid-cache.org
+
+# Download Flash
+.adobe.com
+
+# Arduino website and dependencies
+.arduino.cc
+.jquery.com
+.ctfassets.net
+# Java (needed for Arduino)
+.java.com
+.java.net
+.2o7.net
+
+# Engels
+.englisch-hilfen.de
+.tolearnenglish.com
+.englishgrammar.org
+.ego4u.com
+
+# Building websites
+.weebly.com
+.editmysite.com
+.pardot.com
+.typekit.net
+.pki.goog
+.revfluence.com
+.taboola.com
+.quora.com
+
+# ANKI flash card learning software
+.ankiweb.net
+.ankiuser.net
+
+# Spotify, in case your kid needs music while working
+#.spotify.com
+#.edgekey.net
+#.cloudfront.net
+#.spotilocal.com
+#.scdn.co
+
+# Firefox browser stuff
+.firefox.com
+.mozilla.org
+.mozilla.net
+
+# Content Delivery Networks
+.cloudflare.com
+.symcd.com
+.azurewebsites.net
+
+# Ubuntu stuff
+.ubuntu.com
+.canonical.com
+
+# Microsoft Windows, MS Office
+.microsoft.com
+.windowsupdate.com
+.bing.com
+.msftncsi.com
+.edgesuite.net
+.msedge.net
+.live.com
+.skype.com
+.skypeforbusiness.com
+
+# Java downloads
+.oracle.com
+
+# Google
+.google.com
+.gstatic.com
+.googletagmanager.com
+.google-analytics.com
+.googleapis.com
+.googlevideo.com
+.googleusercontent.com
+.googletagservices.com
+.gvt1.com
+.google.nl
+
+# Wikipedia & Kiwix (offline Wikipedia app)
+.wikimedia.org
+.wikipedia.org
+.kiwix.org
+
+# Inkscape software
+.inkscape.org
+
+# Stack Exchange problems & solutions websites (probably incomplete)
+.serverfault.com
+.conversify.com
+.sstatic.net
+
+# Security databases (for checking web certificates etc)
+.public-trust.com
+.geotrust.com
+.usertrust.com
+.omniroot.com
+.verisign.com
+.comodoca.com
+.digicert.com
+.godaddy.com
+.letsencrypt.org
+
+#
+# End of international sites.
+#
+
+
+
+#
+# Dutch sites.
+#
+
+# Zermelo & Magister, common school apps and portals
+.zermelo.net
+.zermelo.nl
+.zportal.nl
+.magister.net
+
+# Educational sites
+.eduroute.nl
+.noordhoff.nl
+.noordhoffuitgevers.nl
+.kennisnet.nl
+# Tijd voor geschiedenis
+.tijdvoorgeschiedenis.nl
+.ytimg.com
+
+# Practice Dutch language
+.cambiumned.nl
+.taalwinkel.nl
+.appspot.com
+.mijnhva.nl
+.spellingsite.nu
+.onzetaal.nl
+
+# School TV
+.schooltv.nl
+.npostreaming.nl
+.npo.nl
+.ntr.nl
+.omroep.nl
+.publiekeomroep.nl
+
+# Dutch Met office
+.knmi.nl
+
+# Some schools
+.damstede.net
+.zaam.nl
+
+# Don't remember what this was for.
+.toegang.nu
+.utrecht.nl
+
+#
+# End of Dutch
+#
