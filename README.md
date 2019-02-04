@@ -6,7 +6,8 @@ Outline:
 - Install Raspbian on a Raspberry Pi (through NOOBS is OK).
 - On the Pi, become root (`sudo su -`) and run the `parental-filter-setup` script:
   `wget -q -O - https://raw.githubusercontent.com/onnozweers/raspberry-pi-parental-filter/master/setup | bash`
-- On your ADSL or cable modem, block or time-restrict your kid's computer (both UTP and WLAN).
+- On your ADSL or cable modem, block your kid's computer (both UTP and WLAN).
+  - You can also time-restrict your kid's computer. Then one browser can be configured with proxy access, to do their homework. Another browser can be used for general internet access, as long as the time schedule allows it.
 - On your kid's computer, configure the browser to use the proxy server.
 - Block physical access to the Pi.
 
