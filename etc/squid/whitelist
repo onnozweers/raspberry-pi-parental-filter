@@ -39,6 +39,7 @@
 # ANKI flash card learning software
 .ankiweb.net
 .ankiuser.net
+.ankisrs.net
 
 # Spotify, in case your kid needs music while working
 #.spotify.com
@@ -51,6 +52,8 @@
 .firefox.com
 .mozilla.org
 .mozilla.net
+.adblockplus.org
+.getadblock.com
 
 # Content Delivery Networks
 .cloudflare.com
@@ -64,13 +67,20 @@
 # Microsoft Windows, MS Office
 .microsoft.com
 .windowsupdate.com
+.windows.com
+.msn.com
 .bing.com
 .msftncsi.com
 .edgesuite.net
 .msedge.net
+.microsoftonline.com
+.onenote.net
+.office365.com
 .live.com
 .skype.com
 .skypeforbusiness.com
+.sfx.ms
+.azureedge.net
 
 # Java downloads
 .oracle.com
@@ -85,7 +95,10 @@
 .googleusercontent.com
 .googletagservices.com
 .gvt1.com
+.gvt2.com
+.gvt3.com
 .google.nl
+.goo.gl
 
 # Wikipedia & Kiwix (offline Wikipedia app)
 .wikimedia.org
